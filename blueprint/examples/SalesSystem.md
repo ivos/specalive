@@ -63,7 +63,7 @@ and select a customer to work with.
 		- name - Customer name
 		- taxNo - Tax number
 
-	- [Create](#Create-customer)
+	- [Create](#create-customer)
 	
 		Use `links` to represent buttons or HTML links.
 		A `link` refers to a page.
