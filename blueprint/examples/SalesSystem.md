@@ -29,7 +29,10 @@ On general page structure:
 - The forms and lists are specified as `list items` with leading keywords
 `EditForm`, `ReadOnlyForm`, `EditList` and `ReadOnlyList`.
 - Composition of forms and lists within other forms is expressed by embedding
-`lists`.
+HTML `lists`.
+- Forms contain fields and buttons / links. Lists contain data columns.
+- A page may contain fields directly (without embedding them within a form)
+in which case an implicit editable form is assumed.
 
 The List customers page allows users to find and list customers
 and select a customer to work with.
@@ -53,14 +56,23 @@ and select a customer to work with.
 		or it may also be a simple list of rows where each row presents the data
 		of the records in such a way as to make the meaning of each piece of data obvious.
 		
-		The `embedded list items` of a form specify the data columns (pieces) of each row in the UI list.
+		The `embedded list items` of a list specify the data columns (pieces) of each row in the UI list.
 
 		The Customer list displays customers matching the criteria specified by the user.
 		
 		- name - Customer name
 		- taxNo - Tax number
 
-	- [Create](Create_Customer)
+	- [Create](Create_customer)
+	
+		Use `links` to represent buttons or HTML links.
+		A `link` refers to a page.
 
-- EditForm CreateCustomer
+### Create customer
 
+Create customer page lets the user create a new customer record.
+
+Use list items to specify 
+
+- taxNo (text) - Tax number
+- name (text, required) - The name of the customer
