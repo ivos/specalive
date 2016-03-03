@@ -66,6 +66,22 @@ and select a customer to work with.
 	> Use `embedded list items` to specify **fields** of the form.
 
 	- name (text) - Find customer by name. Case-insensitive, starts-by match.
+	
+	> Use parentheses to specify the type of the field. The supported types are:
+	>
+	> - `text`: plain text field
+	> - `password`: text field with the value hidden
+	> - `number`: a text field allowing numerical input
+	> - `date`: a text field allowing date input
+	> - `date-range`: a text field to enter a range of dates (date from, date to)
+	> - `time`: a text field allowing time input
+	> - `checkbox`: a checkbox field, boolean value
+	> - `select`: a dropdown / combobox field that lets the user select a single value from a list of available values
+	> - `radios`: list of radio buttons to select a single value from a list of fixed values
+	> - `multi-select`: a dropdown / combobox field that lets the user select multiple values from a list of available values
+	> - `checkboxes`: list of checkboxes to select multiple values from a list of fixed values
+	>
+	> The text type is default.
 
 - ReadOnlyTable Customer list
 
@@ -85,12 +101,15 @@ and select a customer to work with.
 
 - ReadOnlyForm
 
-	> This anonymous read-only form wraps the following button.
+	> This anonymous read-only form wraps the following button
+	> at the bottom of the _List customers_ page.
+	>
+	> A button (or a link) may optionally refer to a page 
+	> by using its code as the `target` of the `link`.
 
 	- [Create](/customers/new "Create new customer")
-	
-		Use `links` to represent buttons or HTML links.
-		A `link` refers to a page by its code.
+
+		> Use a `link` to represent a **button**.
 
 ### Create customer [/customers/new]
 
@@ -101,5 +120,69 @@ Create customer page lets the user create a new customer record.
 
 - EditForm Create customer
 
-	- taxNo (text) - Tax number
-	- name (text, required) - The name of the customer
+	- EditForm Customer
+	
+		Customer data.
+
+		- taxNo - Tax number
+	
+			Format: 2 upper-case letters (A-Z), 
+			2-12 upper-case letters or numbers (A-Z, 0-9).
+	
+		- [Load](# "Verify tax number and load customer data")
+		
+			> Use `#` as the target of a `link` that does not navigate to other page.
+	
+			System verifies the tax number is valid and pre-fills the following fields (if empty):
+	
+			- name
+			- country
+			- city
+			- street
+			- ZIP code
+			
+			When tax number is **invalid**, system displays **error** 
+			but lets the user **continue** with the invalid tax number.
+			
+			When tax number **could not be verified**, system displays **warning**.
+	
+		- name (text, required) - The name of the customer
+		
+			> Use the `required` keyword after the field `type` to specify a required field.
+		
+		- invoiceMaturity: 30, 60, 90 (select, required) - Invoice maturity
+		- web - URL of the customer's web site
+
+	- EditForm Address
+	
+		Customer address data.
+
+		- country (text, required)
+		- city (text, required)
+		- street
+		- ZIP code
+
+	- EditForm Contact
+	
+		Customer contact data.
+		
+		- salutation: Mr, Ms (select)
+		- lastName (text, required)
+		- firstName
+		- workPhone
+		- mobilePhone
+		- email
+		
+		One of `workPhone`, `mobilePhone`, `email` is required.
+	
+	- [Save](/customers/detail)
+	
+		> Specify the system functionality on the _Save_ button.
+	
+		1. When a customer with the `taxNo` already exists, system displays **error**.
+		
+		2. System creates a new customer.
+
+	- [_Cancel_](/customers "Return back to Customer list")
+
+		> Use a `link` with `emphasized` text (wrapped in underscores) to represent plain HTML links.
