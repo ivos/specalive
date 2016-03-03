@@ -20,20 +20,19 @@ The Sales System lets users keep records of their customers.
 
 > Use `heading level 2` to specify **entry points** into the system.
 > An entry point will typically correspond to a main menu or a menu item.
-> 
 > All system entry points are typically accessible from anywhere within the system,
 > or at least from the system home (landing) page.
 > 
 > The customers entry point specifies the system functionality related to maintaining customers.
 
-The Customers domain lets users search, display, edit and create customers.
+The Customers domain lets users work with customers.
 
-> Entry point consists of pages.
+> An entry point consists of pages.
 
 ### List customers [/customers]
 
 > Use `heading level 3` to specify a **page**.
-> Page represents all the UI elements displayed by the system at once.
+> Page represents all the UI elements displayed by the system to the user at once.
 >
 > Use square brackets after the name of the page to specify its **code**.
 > (In a web application this may coincide with the URL or URL fragment of the page.)
@@ -41,16 +40,16 @@ The Customers domain lets users search, display, edit and create customers.
 >
 > General page structure:
 >
-> - Page consists of **forms** and **tables**.
+> - A page consists of **forms** and **tables**.
 > - Both forms and tables can be either **editable** or **read-only**.
 > - Forms and tables are specified as `list items` with leading keywords
 > `EditForm`, `ReadOnlyForm`, `EditTable` and `ReadOnlyTable`.
 > - Forms may contain other forms and tables.
 > Composition of forms and tables within other forms is expressed by embedding `lists`.
-> - Forms and tables contain **fields** (**columns** in tables)
+> - Forms and tables contain **fields** (or **columns** in tables)
 > and **buttons** / **links**.
 > These are specified as plain `list items` (with no leading keyword)
-> in a `list` embedded within the `list item` of the form / table.
+> within the form's / table's `list`.
 
 The List customers page allows users to search customers
 and select a customer to work with.
@@ -59,7 +58,7 @@ and select a customer to work with.
 
 	> A `list item` starting with keyword `EditForm` specifies a form with editable fields.
 	>
-	> The Customer criteria editable form specifies the criteria for
+	> The _Customer criteria_ editable form specifies the criteria for
 	> finding customers.
 
 	User enters criteria to find a customer.
@@ -75,23 +74,23 @@ and select a customer to work with.
 	>
 	> (It may be a table with explicitly separate and labelled columns,
 	> or it may also be a simple list of rows where each row presents the data
-	> of the records in such a way as to make the meaning of each piece of data obvious.)
-	> 
-	> The `embedded list items` of a table specify the data columns in the UI table.
+	> of the record in such a way as to make the meaning of each piece of data obvious.)
 
 	The Customer list displays customers matching the criteria entered by the user.
-	
+
+	> The `embedded list items` of a table specify the data columns in the UI table.
+
 	- name - Customer name
 	- taxNo - Tax number
 
 - ReadOnlyForm
 
-	> The anonymous read-only form wraps the following button.
+	> This anonymous read-only form wraps the following button.
 
-	- [Create](/customers/new)
+	- [Create](/customers/new "Create new customer")
 	
 		Use `links` to represent buttons or HTML links.
-		A `link` refers to a page.
+		A `link` refers to a page by its code.
 
 ### Create customer [/customers/new]
 
