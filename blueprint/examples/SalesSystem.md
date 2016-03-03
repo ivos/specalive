@@ -56,7 +56,7 @@ and select a customer to work with.
 
 - EditForm Customer criteria
 
-	> A `list item` starting with keyword `EditForm` specifies a form with editable fields.
+	> A `list item` starting with keyword `EditForm` specifies a **form** with **editable** fields.
 	>
 	> The _Customer criteria_ editable form specifies the criteria for
 	> finding customers.
@@ -85,7 +85,7 @@ and select a customer to work with.
 
 - ReadOnlyTable Customer list
 
-	> This `list item` specifies a read-only UI table that presents multiple records.
+	> This `list item` specifies a **read-only** UI **table** that presents multiple records.
 	> The records are typically displayed as rows in a table.
 	>
 	> (It may be a table with explicitly separate and labelled columns,
@@ -94,7 +94,7 @@ and select a customer to work with.
 
 	The Customer list displays customers matching the criteria entered by the user.
 
-	> The `embedded list items` of a table specify the data columns in the UI table.
+	> The `embedded list items` of a table specify the data **columns** in the UI table.
 
 	- name - Customer name
 	- taxNo - Tax number
@@ -104,7 +104,7 @@ and select a customer to work with.
 	> This anonymous read-only form wraps the following button
 	> at the bottom of the _List customers_ page.
 	>
-	> A button (or a link) may optionally refer to a page 
+	> A button (or a link) may optionally **refer to a page** 
 	> by using its code as the `target` of the `link`.
 
 	- [Create](/customers/new "Create new customer")
@@ -128,6 +128,8 @@ Create customer page lets the user create a new customer record.
 	
 			Format: 2 upper-case letters (A-Z), 
 			2-12 upper-case letters or numbers (A-Z, 0-9).
+			
+			> Use an embedded paragraph to further specify the field.
 	
 		- [Load](# "Verify tax number and load customer data")
 		
@@ -135,24 +137,29 @@ Create customer page lets the user create a new customer record.
 			>
 			> Specify the system functionality on the _Load_ button.
 
-			System verifies the tax number is valid and pre-fills the following fields (if empty):
+			1. System verifies the tax number is valid and pre-fills the following fields (if empty):
 	
-			- name
-			- country
-			- city
-			- street
-			- postalCode
+				- `name`
+				- `country`
+				- `city`
+				- `street`
+				- `postalCode`
 			
-			When tax number is **invalid**, system displays **error** 
+			2. When tax number is **invalid**, system displays **error** 
 			but lets the user **continue** with the invalid tax number.
 			
-			When tax number **could not be verified**, system displays **warning**.
+			3. When tax number **could not be verified**, system displays **warning**.
 	
 		- name (text, required) - The name of the customer
 		
 			> Use the `required` keyword after the field type to specify a **required** field.
 		
 		- invoiceMaturity: 30, 60, 90 (select, required) - Invoice maturity
+		
+			> Specify the available values after the name of the field and a colon 
+			> (for field types that select from a list of values,
+			> i.e. `select`, `radios`, `multi-select`, `checkboxes`).
+		
 		- web - URL of the customer's web site
 
 	- EditForm Address
