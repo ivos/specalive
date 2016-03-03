@@ -67,7 +67,7 @@ and select a customer to work with.
 
 	- name (text) - Find customer by name. Case-insensitive, starts-by match.
 	
-	> Use parentheses to specify the type of the field. The supported types are:
+	> Use parentheses to specify the **type** of the field. The supported types are:
 	>
 	> - `text`: plain text field
 	> - `password`: text field with the value hidden
@@ -132,14 +132,16 @@ Create customer page lets the user create a new customer record.
 		- [Load](# "Verify tax number and load customer data")
 		
 			> Use `#` as the target of a `link` that does not navigate to other page.
-	
+			>
+			> Specify the system functionality on the _Load_ button.
+
 			System verifies the tax number is valid and pre-fills the following fields (if empty):
 	
 			- name
 			- country
 			- city
 			- street
-			- ZIP code
+			- postalCode
 			
 			When tax number is **invalid**, system displays **error** 
 			but lets the user **continue** with the invalid tax number.
@@ -148,7 +150,7 @@ Create customer page lets the user create a new customer record.
 	
 		- name (text, required) - The name of the customer
 		
-			> Use the `required` keyword after the field `type` to specify a required field.
+			> Use the `required` keyword after the field type to specify a **required** field.
 		
 		- invoiceMaturity: 30, 60, 90 (select, required) - Invoice maturity
 		- web - URL of the customer's web site
@@ -160,7 +162,7 @@ Create customer page lets the user create a new customer record.
 		- country (text, required)
 		- city (text, required)
 		- street
-		- ZIP code
+		- postalCode
 
 	- EditForm Contact
 	
@@ -179,9 +181,9 @@ Create customer page lets the user create a new customer record.
 	
 		> Specify the system functionality on the _Save_ button.
 	
-		1. When a customer with the `taxNo` already exists, system displays **error**.
+		1. When a customer with the `taxNo` **already exists**, system displays **error**.
 		
-		2. System creates a new customer.
+		2. System creates new customer.
 
 	- [_Cancel_](/customers "Return back to Customer list")
 
