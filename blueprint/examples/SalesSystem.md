@@ -89,31 +89,26 @@ and select a product to work with.
 
 	> Use `embedded list items` to specify **fields** of the form.
 
-	- name (text)
+	- Name (text)
 
-	> A field specification starts with the **code** of the field.
+	> A field specification starts with the **label** of the field.
 	>
 	> Use parentheses to specify the **type** of the field. The supported types are:
 	>
 	> - `text`: plain text field
 	> - `password`: text field with the value hidden
-	> - `number`: a text field allowing numerical input
-	> - `date`: a text field allowing date input
-	> - `time`: a text field allowing time input
+	> - `date`: a text field aiding the user to enter a date value (possibly using a date-picker)
+	> - `time`: a text field aiding the user to enter a time value (possibly using a time-picker)
 	> - `checkbox`: a checkbox field, boolean value
 	> - `select`: a dropdown / combobox field that lets the user select a single value from a list of available values
 	> - `radios`: list of radio buttons to select a single value from a list of fixed values
-	> - `multi-select`: a dropdown / combobox field that lets the user select multiple values from a list of available values
+	> - `multiSelect`: a dropdown / combobox field that lets the user select multiple values from a list of available values
 	> - `checkboxes`: list of checkboxes to select multiple values from a list of fixed values
 	>
-	> The `text` type is default, so it can actually be omitted in the _name_ field specification above.
+	> The `text` type is default, so it can actually be omitted in the _Name_ field specification above.
 
-	- ean - EAN
-	
-		> By default, the **field label** is derived from its code automatically.
-		> You can however specify a custom label after dash.
-	
-	- status: Active, Disabled (select)
+	- EAN
+	- Status: Active, Disabled (select)
 
 		> Specify the value of the field after a colon.
 		> Multiple values can be specified by separating them with a comma.
@@ -126,12 +121,12 @@ and select a product to work with.
 	The system displays products matching the criteria entered.
 	For text fields, system performs case-insensitive, starts-by match.
 
-	> The `embedded list items` of a table specify the data **columns** in the UI table.
+	> The `embedded list items` of a table specify the **columns** in the UI table.
 
-	- name: T-shirt Orange, T-shirt Tutti Frutti, T-shirt Free, T-shirt Hipster, Cookies Chocolate Ecuador, Cookies Chocolate Venezuela, Cookies Orange
-	- ean: 70107773572, 70115256941, 70112074810, 70112074810, 70114765149, 70108874916, 70108669294
-	- status: Active, Active, Active, Active, Disabled
-	- recommendedRetailPrice: 9.99, 9.99, 9.99, 9.99, 2.89, 2.89, 2.89
+	- Name: T-shirt Orange, T-shirt Tutti Frutti, T-shirt Free, T-shirt Hipster, Cookies Chocolate Ecuador, Cookies Chocolate Venezuela, Cookies Orange
+	- EAN: 70107773572, 70115256941, 70112074810, 70112074810, 70114765149, 70108874916, 70108669294
+	- Status: Active, Active, Active, Active, Disabled
+	- Retail price: 9.99, 9.99, 9.99, 9.99, 2.89, 2.89, 2.89
 	- [View](/products/detail "View product detail")
 
 		> Use a `link` to represent a **button**.
@@ -145,7 +140,7 @@ and select a product to work with.
 - ReadOnlyForm
 
 	> This anonymous read-only form wraps the following button
-	> at the bottom of the _List customers_ screen.
+	> on the _List products_ screen.
 
 	- [Create](/products/new "Create new product")
 
@@ -158,21 +153,28 @@ Create products screen lets the user create a new product record.
 
 - EditForm New product
 
-	- name (text, required)
+	- Name (text, required)
 		
-		> Use the `required` keyword after the field type to specify a **required** field.
+		> Specify the **status** of the field after its type.
+		> The supported status values are:
 		>
-		> The type can also be omitted, in which case it defaults to `text` as in the following field.
+		> - `readOnly`
+		> - `optional`
+		> - `required`
+		>
+		> On read-only forms and tables, the `readOnly` status is the default.
+		> On editable forms and tables, the `optional` status is the default.
+		>
+		> The status can also be specified without the type as in the following field.
 
-	- ean (required) - EAN
-	- cogs (number, required) - COGS
-	
-		Cost of goods sold, the buying price.
+	- EAN (required)
+	- COGS (required) - Cost of goods sold, the buying price.
 			
-		> Use an embedded paragraph to further specify the field.
+		> Specify the **hint** of the field after a dash.
+		> A hint is displayed on the form to the user as an explanation related to the field.
 	
-	- retailPrice (number, required)
-	- vatRate (number, required) - VAT rate
+	- Retail price (required)
+	- VAT rate (required)
 
 	- [Save](/products/detail)
 	
@@ -188,25 +190,25 @@ Create products screen lets the user create a new product record.
 
 - ReadOnlyForm Product
 
-	- name: T-shirt Orange
-	- status: Active
-	- ean: 70107773572 - EAN
-	- cogs: 3.54 - COGS
-	- retailPrice: 9.99
-	- vatRate: 15 % - VAT rate
+	- Name: T-shirt Orange
+	- Status: Active
+	- EAN: 70107773572
+	- COGS: 3.54
+	- Retail price: 9.99
+	- VAT rate: 15 %
 
 	- [Edit](/products/detail/edit "Edit the product")
 	- [Disable]()
 	
 		Enabled for status active.
 		
-		System sets status disabled.
+		1. System sets status disabled.
 
 	- [Activate]()
 	
 		Enabled for status disabled.
 		
-		System sets status active.
+		1. System sets status active.
 
 	- [Cancel](/products "Return back to Product list")
 
@@ -214,11 +216,11 @@ Create products screen lets the user create a new product record.
 
 - EditForm Edit product
 
-	- name: T-shirt Orange (text, required)
-	- ean: 70107773572 (required) - EAN
-	- cogs: 3.54 (number, required) - COGS
-	- retailPrice: 9.99 (number, required)
-	- vatRate: 15 (number, required) - VAT rate
+	- Name: T-shirt Orange (required)
+	- EAN: 70107773572 (required)
+	- COGS: 3.54 (required)
+	- Retail price: 9.99 (required)
+	- VAT rate: 15 (required)
 
 	- [Save](/products/detail)
 
@@ -242,14 +244,14 @@ and select a customer to work with.
 
 	User enters criteria to find a customer.
 
-	- name - Find customer by name.
+	- Name
 
 - ReadOnlyTable Customer list
 
 	The system displays customers matching the criteria entered by the user.
 
-	- name - Customer name
-	- taxNo - Tax number
+	- Name
+	- Tax number
 	- [View](/customers/detail "View customer detail")
 
 - ReadOnlyForm
@@ -260,16 +262,20 @@ and select a customer to work with.
 
 - EditForm Create customer
 
-	> The create customer form has 3 sections: customer, address and contact.
+	The create customer form has 3 sections: customer, address and contact.
+	This guarantees that a new customer will have at least one address and contact defined.
+	More addresses and contacts can be then added to the customer.
 
 	- EditForm Customer
 	
 		Customer data.
 
-		- taxNo - Tax number
+		- Tax number - Including country prefix, without spaces.
 	
 			Format: 2 upper-case letters (A-Z), 
 			2-12 upper-case letters or numbers (A-Z, 0-9).
+			
+			> Use an embedded paragraph to further specify the field.
 	
 		- [Load](. "Verify tax number and load customer data")
 		
@@ -277,50 +283,50 @@ and select a customer to work with.
 			>
 			> Specify the system functionality of the _Load_ button:
 
-			1. System verifies the tax number is valid and pre-fills the following fields (if empty):
+			1. If tax number is **valid**, system pre-fills the following fields (if empty):
 	
-				- `name`
-				- `country`
-				- `city`
-				- `street`
-				- `postalCode`
+				- Name
+				- Country
+				- City
+				- Street
+				- Postal code
 			
 			2. If tax number is **invalid**, system displays **error** 
 			but lets the user **continue** with the invalid tax number.
 			
 			3. If tax number **could not be verified**, system displays **warning**.
 	
-		- name (text, required) - The name of the customer
+		- Name (required)
 		
-		- invoiceMaturity: 30, 60, 90 (select, required) - Invoice maturity
+		- Invoice maturity: 30, 60, 90 (select, required)
 		
-		- web - URL of the customer's web site
+		- Web - URL of the customer's web site
 
 	- EditForm Address
 	
 		Customer address data.
 
-		- country (text, required)
-		- city (text, required)
-		- street
-		- postalCode
+		- Country (required)
+		- City (required)
+		- Street
+		- Postal code
 
 	- EditForm Contact
 	
 		Customer contact data.
 		
-		- salutation: Mr, Ms (select)
-		- lastName (text, required)
-		- firstName
-		- workPhone
-		- mobilePhone
-		- email
+		- Salutation: Mr, Ms (select)
+		- Last name (required)
+		- First name
+		- Work phone
+		- Mobile phone
+		- Email
 		
-		One of `workPhone`, `mobilePhone`, `email` is required.
+		One of Work phone, Mobile phone, Email is required.
 
 	- [Save](/customers/detail)
 
-		1. If a customer with the `taxNo` already exists: system displays **error**.
+		1. If a customer with the Tax number already exists: system displays **error**.
 		
 		2. System creates new customer.
 
