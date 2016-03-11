@@ -120,6 +120,7 @@ and select a product to work with.
 
 	The system displays products matching the criteria entered.
 	For text fields, system performs case-insensitive, starts-by match.
+	System starts by displaying first page of matching criteria.
 
 	> The `embedded list items` of a table specify the **columns** in the UI table.
 
@@ -170,8 +171,14 @@ and select a product to work with.
 
 - ReadOnlyForm
 
-	> This anonymous read-only form wraps the following button
+	> This anonymous read-only form wraps the following buttons
 	> on the _List products_ screen.
+
+	- [Next]
+
+		> Specify the system functionality on the _Next_ button.
+		
+		System loads next page of matching records and adds them to the table.
 
 	- [Create](/products/new "Create new product")
 
@@ -210,8 +217,6 @@ Create products screen lets the user create a new product record.
 	- VAT rate (*)
 
 	- [Save](/products/detail)
-	
-		> Specify the system functionality on the _Save_ button.
 
 		1. If a product with the EAN code already exists: system displays **error**.
 		
@@ -292,6 +297,8 @@ and select a customer to work with.
 		- DE56874646
 		- FR2776987643
 		- GB02264641
+	- [Next]
+		System loads next page of matching records and adds them to the table.
 	- [View](/customers/detail "View customer detail")
 
 - ReadOnlyForm
@@ -373,7 +380,6 @@ and select a customer to work with.
 ### Customer detail [/customers/detail]
 
 - ReadOnlyForm Customer
-
 	- Name: Hans Bauer
 	- Tax number: DE56874646
 	- Invoice maturity: 60
@@ -382,7 +388,6 @@ and select a customer to work with.
 	- [Cancel](/customers)
 
 - ReadOnlyList Addresses
-
 	- Country
 		- Germany
 		- Germany
@@ -395,9 +400,14 @@ and select a customer to work with.
 	- Postal code
 		- 23478
 		- 65421
+	- [Edit]
+		The screen to edit customer address needs to be specified.
+
+- ReadOnlyForm
+	- [Create address]
+		The screen to create new customer address needs to be specified.
 
 - ReadOnlyList Contacts
-
 	- Salutation
 		- Mr
 	- Last name
@@ -411,6 +421,12 @@ and select a customer to work with.
 	- Mobile phone
 		- 333555777
 	- Email
+	- [Edit]
+		The screen to edit customer contact needs to be specified.
+
+- ReadOnlyForm
+	- [Create contact]
+		The screen to create new customer contact needs to be specified.
 
 ### Edit customer [/customers/detail/edit]
 
