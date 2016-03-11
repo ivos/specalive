@@ -217,10 +217,9 @@ Create products screen lets the user create a new product record.
 	- VAT rate (*)
 
 	- [Save](/products/detail)
-
 		1. If a product with the EAN code already exists: system displays **error**.
-		
-		2. System creates new product.
+		2. System sets status = Active.
+		3. System creates new product.
 
 	- [Cancel](/products "Return back to Product list")
 
@@ -289,20 +288,26 @@ and select a customer to work with.
 
 - ReadOnlyTable Customer list
 
-	The system displays customers matching the criteria entered by the user.
+	The system displays customers matching the criteria entered by the user,
+	sorted by number of orders they have in descending order.
 
 	- Name
-		- Hans Bauer
+		- Gauss GmbH.
+		- Poisson Denis
+		- Newton Inc.
+		- Fibonacci srl.
 	- Tax number
 		- DE56874646
 		- FR2776987643
 		- GB02264641
-	- [Next]
-		System loads next page of matching records and adds them to the table.
+		- IT33656477
 	- [View](/customers/detail "View customer detail")
+	
+		> Button specified in place of a table column will be replicated into each table row.
 
 - ReadOnlyForm
-
+	- [Next]
+		System loads next page of matching records and adds them to the table.
 	- [Create](/customers/new "Create new customer")
 
 ### Create customer [/customers/new]
@@ -321,7 +326,7 @@ and select a customer to work with.
 	
 			Format: 2 upper-case letters (A-Z), 
 			2-12 upper-case letters or numbers (A-Z, 0-9).
-			
+
 			> Use an embedded paragraph to further specify the field.
 	
 		- [Load](. "Verify tax number and load customer data")
@@ -380,7 +385,7 @@ and select a customer to work with.
 ### Customer detail [/customers/detail]
 
 - ReadOnlyForm Customer
-	- Name: Hans Bauer
+	- Name: Gauss Friedrich
 	- Tax number: DE56874646
 	- Invoice maturity: 60
 	- Web
@@ -411,10 +416,10 @@ and select a customer to work with.
 	- Salutation
 		- Mr
 	- Last name
-		- Bauer
+		- Gauss
 		- Redel
 	- First name
-		- Hans
+		- Friedrich
 	- Work phone
 		- 
 		- 777333111
@@ -432,9 +437,56 @@ and select a customer to work with.
 
 - ReadOnlyForm Customer
 
-	- Name (*): Hans Bauer
+	- Name (*): Gauss Friedrich
 	- Tax number: DE56874646
 	- Invoice maturity (* select: 30, 60, 90): 60
 	- Web - URL of the customer's web site
 	- [Save](/customers/detail "Edit the customer")
 	- [Cancel](/customers/detail)
+
+
+## Orders
+
+Maintain customer orders.
+
+### List orders [/orders]
+
+Orders are sorted by time created in descending order.
+
+- EditForm Order criteria
+	- Order number
+	- Status (select: Created, Confirmed, Closed, Invoiced)
+	- Customer
+- ReadOnlyTable Order list
+	- Order number
+		- 1236 0116
+		- 1224 1215
+		- 1215 1115
+		- 1213 1015
+		- 1201 1015
+	- Status
+		- Created
+		- Confirmed
+		- Closed
+		- Invoiced
+		- Invoiced
+	- Customer
+		- [Gauss GmbH.](/customers/detail)
+		- [Gauss GmbH.](/customers/detail)
+		- [Poisson Denis](/customers/detail)
+		- [Newton Inc.](/customers/detail)
+		- [Fibonacci srl.](/customers/detail)
+	- [View](/orders/detail)
+- ReadOnlyForm
+	- [Next]
+		System loads next page of matching records and adds them to the table.
+	- [Create](/orders/new)
+
+### Create order [orders/new]
+- EditForm
+	- Customer (* select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.)
+	- Date received (* date): 12/31/2015
+		System pre-fills with current date.
+	- [Save]
+		1. System sets status = Created.
+		2. System creates new order.
