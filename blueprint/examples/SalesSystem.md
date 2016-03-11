@@ -69,7 +69,7 @@ The Products domain lets users maintain product database within the system.
 > - Both forms and tables can be either **editable** or **read-only**.
 > - Forms and tables are specified as `list items` with leading keywords
 > `EditForm`, `ReadOnlyForm`, `EditTable` and `ReadOnlyTable`.
-> - Forms and tables can be nested as required.
+> - Forms and tables can be nested within other form.
 > Composition of forms and tables is expressed by embedding `lists`.
 > - Forms / tables contain **fields** / **columns** and **buttons**.
 > These are specified as plain `list items` (with no leading keyword)
@@ -108,10 +108,10 @@ and select a product to work with.
 	> The `text` type is default, so it can actually be omitted in the _Name_ field specification above.
 
 	- EAN
-	- Status: Active, Disabled (select)
+	- Status (select: Active, Disabled)
 
-		> Specify the value of the field after a colon.
-		> Multiple values can be specified by separating them with a comma.
+		> Specify the values of a `select` field after a colon.
+		> Multiple values are separated with a comma.
 
 - ReadOnlyTable Product list
 
@@ -123,10 +123,41 @@ and select a product to work with.
 
 	> The `embedded list items` of a table specify the **columns** in the UI table.
 
-	- Name: T-shirt Orange, T-shirt Tutti Frutti, T-shirt Free, T-shirt Hipster, Cookies Chocolate Ecuador, Cookies Chocolate Venezuela, Cookies Orange
-	- EAN: 70107773572, 70115256941, 70112074810, 70112074810, 70114765149, 70108874916, 70108669294
-	- Status: Active, Active, Active, Active, Disabled
-	- Retail price: 9.99, 9.99, 9.99, 9.99, 2.89, 2.89, 2.89
+	- Name
+
+		> Line items embedded within a column specify the values for the rows in the table:
+
+		- T-shirt Orange
+		- T-shirt Tutti Frutti
+		- T-shirt Free
+		- T-shirt Hipster
+		- Cookies Chocolate Ecuador
+		- Cookies Chocolate Venezuela
+		- Cookies Orange
+	- EAN
+		- 70107773572
+		- 70115256941
+		- 70112074810
+		- 70112074810
+		- 70114765149
+		- 70108874916
+		- 70108669294
+	- Status
+		- Active
+		- Active
+		- Active
+		- Active
+		- Disabled
+		- Active
+		- Active
+	- Retail price
+		- 9.99
+		- 9.99
+		- 9.99
+		- 9.99
+		- 2.89
+		- 2.89
+		- 2.89
 	- [View](/products/detail "View product detail")
 
 		> Use a `link` to represent a **button**.
@@ -153,28 +184,30 @@ Create products screen lets the user create a new product record.
 
 - EditForm New product
 
-	- Name (text, required)
+	- Name (required text)
 		
-		> Specify the **status** of the field after its type.
+		> Specify the **status** of the field before its type.
 		> The supported status values are:
 		>
 		> - `readOnly`
 		> - `optional`
-		> - `required`
+		> - `required` = `*`
 		>
 		> On read-only forms and tables, the `readOnly` status is the default.
 		> On editable forms and tables, the `optional` status is the default.
 		>
+		> A star is equivalent to required.
+		>
 		> The status can also be specified without the type as in the following field.
 
-	- EAN (required)
-	- COGS (required) - Cost of goods sold, the buying price.
+	- EAN (*)
+	- COGS (*) - Cost of goods sold, the buying price.
 			
 		> Specify the **hint** of the field after a dash.
 		> A hint is displayed on the form to the user as an explanation related to the field.
 	
-	- Retail price (required)
-	- VAT rate (required)
+	- Retail price (*)
+	- VAT rate (*)
 
 	- [Save](/products/detail)
 	
@@ -191,6 +224,9 @@ Create products screen lets the user create a new product record.
 - ReadOnlyForm Product
 
 	- Name: T-shirt Orange
+
+		> Specify the value of the field after a colon.
+
 	- Status: Active
 	- EAN: 70107773572
 	- COGS: 3.54
@@ -216,11 +252,11 @@ Create products screen lets the user create a new product record.
 
 - EditForm Edit product
 
-	- Name: T-shirt Orange (required)
-	- EAN: 70107773572 (required)
-	- COGS: 3.54 (required)
-	- Retail price: 9.99 (required)
-	- VAT rate: 15 (required)
+	- Name (*): T-shirt Orange
+	- EAN (*): 70107773572
+	- COGS (*): 3.54
+	- Retail price (*): 9.99
+	- VAT rate (*): 15
 
 	- [Save](/products/detail)
 
@@ -250,8 +286,12 @@ and select a customer to work with.
 
 	The system displays customers matching the criteria entered by the user.
 
-	- Name: Hans Bauer
-	- Tax number: DE56874646, FR2776987643, GB02264641
+	- Name
+		- Hans Bauer
+	- Tax number
+		- DE56874646
+		- FR2776987643
+		- GB02264641
 	- [View](/customers/detail "View customer detail")
 
 - ReadOnlyForm
@@ -296,16 +336,16 @@ and select a customer to work with.
 			
 			3. If tax number **could not be verified**, system displays **warning**.
 	
-		- Name (required)
-		- Invoice maturity: 30, 60, 90 (select, required)
+		- Name (*)
+		- Invoice maturity (* select: 30, 60, 90)
 		- Web - URL of the customer's web site
 
 	- EditForm Address
 	
 		Customer address data.
 
-		- Country (required)
-		- City (required)
+		- Country (*)
+		- City (*)
 		- Street
 		- Postal code
 
@@ -313,8 +353,8 @@ and select a customer to work with.
 	
 		Customer contact data.
 		
-		- Salutation: Mr, Ms (select)
-		- Last name (required)
+		- Salutation (select: Mr, Ms)
+		- Last name (*)
 		- First name
 		- Work phone
 		- Mobile phone
@@ -343,28 +383,42 @@ and select a customer to work with.
 
 - ReadOnlyList Addresses
 
-	- Country: Germany, Germany
-	- City: Oberbach, Unterhofen
-	- Street: Kirchgasse 5, Rathausplatz 3
-	- Postal code: 23478, 65421
+	- Country
+		- Germany
+		- Germany
+	- City
+		- Oberbach
+		- Unterhofen
+	- Street
+		- Kirchgasse 5
+		- Rathausplatz 3
+	- Postal code
+		- 23478
+		- 65421
 
 - ReadOnlyList Contacts
 
-	- Salutation: Mr,
-	- Last name: Bauer, Redel
-	- First name: Hans
-	- Work phone: , 777333111
-	- Mobile phone: 333555777
+	- Salutation
+		- Mr
+	- Last name
+		- Bauer
+		- Redel
+	- First name
+		- Hans
+	- Work phone
+		- 
+		- 777333111
+	- Mobile phone
+		- 333555777
 	- Email
 
 ### Edit customer [/customers/detail/edit]
 
 - ReadOnlyForm Customer
 
-	- Name: Hans Bauer (required)
+	- Name (*): Hans Bauer
 	- Tax number: DE56874646
-	- Invoice maturity: 60
-	- Invoice maturity: 30, **60**, 90 (select, required)
+	- Invoice maturity (* select: 30, 60, 90): 60
 	- Web - URL of the customer's web site
 	- [Save](/customers/detail "Edit the customer")
 	- [Cancel](/customers/detail)
