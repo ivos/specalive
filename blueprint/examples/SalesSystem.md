@@ -250,8 +250,8 @@ and select a customer to work with.
 
 	The system displays customers matching the criteria entered by the user.
 
-	- Name
-	- Tax number
+	- Name: Hans Bauer
+	- Tax number: DE56874646, FR2776987643, GB02264641
 	- [View](/customers/detail "View customer detail")
 
 - ReadOnlyForm
@@ -297,9 +297,7 @@ and select a customer to work with.
 			3. If tax number **could not be verified**, system displays **warning**.
 	
 		- Name (required)
-		
 		- Invoice maturity: 30, 60, 90 (select, required)
-		
 		- Web - URL of the customer's web site
 
 	- EditForm Address
@@ -331,3 +329,42 @@ and select a customer to work with.
 		2. System creates new customer.
 
 	- [Cancel](/customers "Return back to Customer list")
+
+### Customer detail [/customers/detail]
+
+- ReadOnlyForm Customer
+
+	- Name: Hans Bauer
+	- Tax number: DE56874646
+	- Invoice maturity: 60
+	- Web
+	- [Edit](/customers/detail/edit "Edit the customer")
+	- [Cancel](/customers)
+
+- ReadOnlyList Addresses
+
+	- Country: Germany, Germany
+	- City: Oberbach, Unterhofen
+	- Street: Kirchgasse 5, Rathausplatz 3
+	- Postal code: 23478, 65421
+
+- ReadOnlyList Contacts
+
+	- Salutation: Mr,
+	- Last name: Bauer, Redel
+	- First name: Hans
+	- Work phone: , 777333111
+	- Mobile phone: 333555777
+	- Email
+
+### Edit customer [/customers/detail/edit]
+
+- ReadOnlyForm Customer
+
+	- Name: Hans Bauer (required)
+	- Tax number: DE56874646
+	- Invoice maturity: 60
+	- Invoice maturity: 30, **60**, 90 (select, required)
+	- Web - URL of the customer's web site
+	- [Save](/customers/detail "Edit the customer")
+	- [Cancel](/customers/detail)
