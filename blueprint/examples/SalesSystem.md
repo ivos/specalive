@@ -32,6 +32,7 @@ and hopefully also better understand its functionality.
 It is a working draft, there are system functions yet to be added 
 and all the wording may still be changed.
 
+**The UI of the REAL application will look different.**
 This document does NOT specify the layout of the screens (how the elements will be arranged).
 It does NOT specify the graphical look of the screens either.
 Both of these will be defined by a graphical designer in a process separate from this document.
@@ -39,7 +40,7 @@ The aim of this documentation is to specify the functionality of the system
 and the screens presented here only illustrate the functionality,
 they do not attempt to match the target look and feel of the system.
 
-This document is maintained by Andy Thor,
+This functional specification is maintained by Andy Thor,
 you can reach me at a.u.thor@theco.com should you have any questions, comments or suggestions.
 I'd be happy to help you.
 
@@ -99,6 +100,7 @@ and select a product to work with.
 	> - `password`: text field with the value hidden
 	> - `date`: a text field aiding the user to enter a date value (possibly using a date-picker)
 	> - `time`: a text field aiding the user to enter a time value (possibly using a time-picker)
+	> - `multiLine`: multi-line text field
 	> - `checkbox`: a checkbox field, boolean value
 	> - `select`: a dropdown / combobox field that lets the user select a single value from a list of available values
 	> - `radios`: list of radio buttons to select a single value from a list of fixed values
@@ -174,7 +176,7 @@ and select a product to work with.
 	> This anonymous read-only form wraps the following buttons
 	> on the _List products_ screen.
 
-	- [Next]
+	- [Next]()
 
 		> Specify the system functionality on the _Next_ button.
 		
@@ -306,8 +308,10 @@ and select a customer to work with.
 		> Button specified in place of a table column will be replicated into each table row.
 
 - ReadOnlyForm
-	- [Next]
+	- [Next]()
+
 		System loads next page of matching records and adds them to the table.
+
 	- [Create](/customers/new "Create new customer")
 
 ### Create customer [/customers/new]
@@ -405,11 +409,13 @@ and select a customer to work with.
 	- Postal code
 		- 23478
 		- 65421
-	- [Edit]
+	- [Edit]()
+
 		The screen to edit customer address needs to be specified.
 
 - ReadOnlyForm
-	- [Create address]
+	- [Create address]()
+
 		The screen to create new customer address needs to be specified.
 
 - ReadOnlyList Contacts
@@ -426,11 +432,13 @@ and select a customer to work with.
 	- Mobile phone
 		- 333555777
 	- Email
-	- [Edit]
+	- [Edit]()
+
 		The screen to edit customer contact needs to be specified.
 
 - ReadOnlyForm
-	- [Create contact]
+	- [Create contact]()
+
 		The screen to create new customer contact needs to be specified.
 
 ### Edit customer [/customers/detail/edit]
@@ -478,15 +486,57 @@ Orders are sorted by time created in descending order.
 		- [Fibonacci srl.](/customers/detail)
 	- [View](/orders/detail)
 - ReadOnlyForm
-	- [Next]
+	- [Next]()
+
 		System loads next page of matching records and adds them to the table.
+
 	- [Create](/orders/new)
 
 ### Create order [orders/new]
 - EditForm
 	- Customer (* select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.)
 	- Date received (* date): 12/31/2015
+
 		System pre-fills with current date.
-	- [Save]
+
+	- Comment (multiLine)
+	- [Save](/orders/detail)
 		1. System sets status = Created.
 		2. System creates new order.
+
+### Order detail [/orders/detail]
+- ReadOnlyForm Order
+	- Order number: 1236 0116
+	- Status: Created
+	- Customer: [Gauss GmbH.](/customers/detail)
+	- Date received: 12/31/2015
+	- Comment
+- ReadOnlyTable Line items
+	- Product
+		- T-shirt Orange
+		- T-shirt Hipster
+		- Cookies Orange
+	- Unit price
+		- 9.99
+		- 9.99
+		- 2.89
+	- Quantity
+		- 1
+		- 2
+		- 5
+	- Price
+		- 9.99
+		- 19.98
+		- 14.45
+	- VAT
+		- 1.5
+		- 3
+		- 2.17
+	- Item total
+		- 11.49
+		- 22.98
+		- 16.62
+- ReadOnlyForm Order totals
+	- Total price: 44.42
+	- Total VAT: 6.67
+	- Order total: 51.09
