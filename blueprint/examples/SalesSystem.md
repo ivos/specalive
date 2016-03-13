@@ -242,13 +242,13 @@ Create products screen lets the user create a new product record.
 	- [Edit](/products/detail/edit "Edit the product")
 	- [Disable]()
 	
-		Enabled for status active.
+		Enabled for status Active.
 		
 		1. System sets status disabled.
 
 	- [Activate]()
 	
-		Enabled for status disabled.
+		Enabled for status Disabled.
 		
 		1. System sets status active.
 
@@ -513,9 +513,9 @@ Orders are sorted by time created in descending order.
 	- Comment
 - ReadOnlyTable Line items
 	- Product
-		- T-shirt Orange
-		- T-shirt Hipster
-		- Cookies Orange
+		- [T-shirt Orange](/products/detail)
+		- [T-shirt Hipster](/products/detail)
+		- [Cookies Orange](/products/detail)
 	- Unit price
 		- 9.99
 		- 9.99
@@ -540,3 +540,71 @@ Orders are sorted by time created in descending order.
 	- Total price: 44.42
 	- Total VAT: 6.67
 	- Order total: 51.09
+	- [Edit order](/orders/detail/edit)
+	
+		Enabled for status Created.
+	
+	- [Edit items](/orders/items/edit)
+	
+		Enabled for status Created.
+	
+	- [Confirm](/orders/items/edit)
+	
+		Enabled for status Created.
+		
+		1. System sets status Confirmed.
+
+### Edit order [orders/detail/edit]
+- EditForm
+	- Customer (* select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.): Gauss GmbH.
+	- Date received (* date): 12/31/2015
+	- Comment (multiLine)
+	- [Save](/orders/detail)
+		1. System updates the order.
+	- [Cancel](/orders/detail)
+
+### Edit order items [/orders/items/edit]
+- ReadOnlyForm Order
+	- Order number: 1236 0116
+	- Status: Created
+	- Customer: [Gauss GmbH.](/customers/detail)
+	- Date received: 12/31/2015
+	- Comment
+- EditTable Line items
+	- Product (* select: T-shirt Orange, T-shirt Tutti Frutti, T-shirt Free, T-shirt Hipster, Cookies Chocolate Ecuador, Cookies Orange)
+		- T-shirt Orange
+		- T-shirt Hipster
+		- Cookies Orange
+	- Unit price (readOnly)
+		- 9.99
+		- 9.99
+		- 2.89
+	- Quantity (*)
+		- 1
+		- 2
+		- 5
+	- Price (readOnly)
+		- 9.99
+		- 19.98
+		- 14.45
+	- VAT (readOnly)
+		- 1.5
+		- 3
+		- 2.17
+	- Item total (readOnly)
+		- 11.49
+		- 22.98
+		- 16.62
+	- [Remove]()
+- ReadOnlyForm Order totals
+	- Total price: 44.42
+	- Total VAT: 6.67
+	- Order total: 51.09
+	- [Add item]()
+		1. System creates a new item row in the table.
+	- [Save](/orders/detail)
+		1. System saves modified line items of the order.
+	- [Cancel](/orders/detail)
+
+As the user changes the quantities and adds/removes the line items,
+the system re-calculates the item and order totals.
