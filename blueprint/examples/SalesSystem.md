@@ -200,23 +200,21 @@ Create products screen lets the user create a new product record.
 		>
 		> - `readOnly`
 		> - `optional`
-		> - `required` = `*`
+		> - `required`
 		>
 		> On read-only forms and tables, the `readOnly` status is the default.
 		> On editable forms and tables, the `optional` status is the default.
 		>
-		> A star is equivalent to required.
-		>
 		> The status can also be specified without the type as in the following field.
 
-	- EAN (*)
-	- COGS (*) - Cost of goods sold, the buying price.
+	- EAN (required)
+	- COGS (required) - Cost of goods sold, the buying price.
 			
 		> Specify the **hint** of the field after a dash.
 		> A hint is displayed on the form to the user as an explanation related to the field.
 	
-	- Retail price (*)
-	- VAT rate (*)
+	- Retail price (required)
+	- VAT rate (required)
 
 	- [Save](/products/detail)
 		1. If a product with the EAN code already exists: system displays **error**.
@@ -258,11 +256,11 @@ Create products screen lets the user create a new product record.
 
 - EditForm Edit product
 
-	- Name (*): T-shirt Orange
-	- EAN (*): 70107773572
-	- COGS (*): 3.54
-	- Retail price (*): 9.99
-	- VAT rate (*): 15
+	- Name (required): T-shirt Orange
+	- EAN (required): 70107773572
+	- COGS (required): 3.54
+	- Retail price (required): 9.99
+	- VAT rate (required): 15
 
 	- [Save](/products/detail)
 
@@ -352,16 +350,16 @@ and select a customer to work with.
 			
 			3. If tax number **could not be verified**, system displays **warning**.
 	
-		- Name (*)
-		- Invoice maturity (* select: 30, 60, 90)
+		- Name (required)
+		- Invoice maturity (required select: 30, 60, 90)
 		- Web - URL of the customer's web site
 
 	- EditForm Address
 	
 		Customer address data.
 
-		- Country (*)
-		- City (*)
+		- Country (required)
+		- City (required)
 		- Street
 		- Postal code
 
@@ -370,7 +368,7 @@ and select a customer to work with.
 		Customer contact data.
 		
 		- Salutation (select: Mr, Ms)
-		- Last name (*)
+		- Last name (required)
 		- First name
 		- Work phone
 		- Mobile phone
@@ -445,9 +443,9 @@ and select a customer to work with.
 
 - ReadOnlyForm Customer
 
-	- Name (*): Gauss Friedrich
+	- Name (required): Gauss Friedrich
 	- Tax number: DE56874646
-	- Invoice maturity (* select: 30, 60, 90): 60
+	- Invoice maturity (required select: 30, 60, 90): 60
 	- Web - URL of the customer's web site
 	- [Save](/customers/detail "Edit the customer")
 	- [Cancel](/customers/detail)
@@ -494,8 +492,8 @@ Orders are sorted by time created in descending order.
 
 ### Create order [orders/new]
 - EditForm
-	- Customer (* select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.)
-	- Date received (* date): 12/31/2015
+	- Customer (required select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.)
+	- Date received (required date): 12/31/2015
 
 		System pre-fills with current date.
 
@@ -556,8 +554,8 @@ Orders are sorted by time created in descending order.
 
 ### Edit order [orders/detail/edit]
 - EditForm
-	- Customer (* select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.): Gauss GmbH.
-	- Date received (* date): 12/31/2015
+	- Customer (required select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.): Gauss GmbH.
+	- Date received (required date): 12/31/2015
 	- Comment (multiLine)
 	- [Save](/orders/detail)
 		1. System updates the order.
@@ -571,7 +569,7 @@ Orders are sorted by time created in descending order.
 	- Date received: 12/31/2015
 	- Comment
 - EditTable Line items
-	- Product (* select: T-shirt Orange, T-shirt Tutti Frutti, T-shirt Free, T-shirt Hipster, Cookies Chocolate Ecuador, Cookies Orange)
+	- Product (required select: T-shirt Orange, T-shirt Tutti Frutti, T-shirt Free, T-shirt Hipster, Cookies Chocolate Ecuador, Cookies Orange)
 		- T-shirt Orange
 		- T-shirt Hipster
 		- Cookies Orange
@@ -579,7 +577,7 @@ Orders are sorted by time created in descending order.
 		- 9.99
 		- 9.99
 		- 2.89
-	- Quantity (*)
+	- Quantity (required)
 		- 1
 		- 2
 		- 5
