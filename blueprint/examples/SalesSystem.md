@@ -161,7 +161,7 @@ and select a product to work with.
 		- 2.89
 		- 2.89
 		- 2.89
-	- [View](/products/detail "View product detail")
+	- [View](#/products/detail "View product detail")
 
 		> Use a `link` to represent a **button**.
 		>
@@ -169,20 +169,25 @@ and select a product to work with.
 		> perform some functionality, or do both of these.
 		>
 		> A button **refers** to another screen 
-		> by using the screen's code as the `target` of the `link`.
+		> by using the screen's code prefixed with `#` as the `target` of the `link`.
+		>
+		> A button can also link outside the specification when the `#` prefix is not used.
+		>
+		> You can specify a title after the reference in double quotes.
+		> The title is displayed next to the button.
 
 - ReadOnlyForm
 
 	> This anonymous read-only form wraps the following buttons
 	> on the _List products_ screen.
 
-	- [Next]()
+	- [Next]
 
 		> Specify the system functionality on the _Next_ button.
 		
 		System loads next page of matching records and adds them to the table.
 
-	- [Create](/products/new "Create new product")
+	- [Create](#/products/new "Create new product")
 
 ### Create product [/products/new]
 
@@ -216,12 +221,12 @@ Create products screen lets the user create a new product record.
 	- Retail price (required)
 	- VAT rate (required)
 
-	- [Save](/products/detail)
+	- [Save](#/products/detail)
 		1. If a product with the EAN code already exists: system displays **error**.
 		2. System sets status = Active.
 		3. System creates new product.
 
-	- [Cancel](/products "Return back to Product list")
+	- [Cancel](#/products "Return back to Product list")
 
 ### Product detail [/products/detail]
 
@@ -237,20 +242,20 @@ Create products screen lets the user create a new product record.
 	- Retail price: 9.99
 	- VAT rate: 15 %
 
-	- [Edit](/products/detail/edit "Edit the product")
-	- [Disable]()
+	- [Edit](#/products/detail/edit "Edit the product")
+	- [Disable]
 	
 		Enabled for status Active.
 		
 		1. System sets status disabled.
 
-	- [Activate]()
+	- [Activate]
 	
 		Enabled for status Disabled.
 		
 		1. System sets status active.
 
-	- [Cancel](/products "Return back to Product list")
+	- [Cancel](#/products "Return back to Product list")
 
 ### Edit product [/products/detail/edit]
 
@@ -262,13 +267,13 @@ Create products screen lets the user create a new product record.
 	- Retail price (required): 9.99
 	- VAT rate (required): 15
 
-	- [Save](/products/detail)
+	- [Save](#/products/detail)
 
 		1. If other product with the EAN code already exists: system displays **error**.
 		
 		2. System updates the product.
 
-	- [Cancel](/products/detail "Return back to Product detail")
+	- [Cancel](#/products/detail "Return back to Product detail")
 
 
 ## Customers
@@ -301,16 +306,16 @@ and select a customer to work with.
 		- FR2776987643
 		- GB02264641
 		- IT33656477
-	- [View](/customers/detail "View customer detail")
+	- [View](#/customers/detail "View customer detail")
 	
 		> Button specified in place of a table column will be replicated into each table row.
 
 - ReadOnlyForm
-	- [Next]()
+	- [Next]
 
 		System loads next page of matching records and adds them to the table.
 
-	- [Create](/customers/new "Create new customer")
+	- [Create](#/customers/new "Create new customer")
 
 ### Create customer [/customers/new]
 
@@ -331,9 +336,12 @@ and select a customer to work with.
 
 			> Use an embedded paragraph to further specify the field.
 	
-		- [Load](. "Verify tax number and load customer data")
+		- [Load]("Verify tax number and load customer data")
 		
-			> Use dot `.` as the target of a `link` that does not navigate to other screen.
+		    > The reference in a button is optional, you can only specify the title in double quotes.
+		    >
+			> Alternatively, you can also use dot `.` as the target of a `link` 
+			> that has a title but does not navigate to other screen.
 			>
 			> Specify the system functionality of the _Load_ button:
 
@@ -376,13 +384,13 @@ and select a customer to work with.
 		
 		One of Work phone, Mobile phone, Email is required.
 
-	- [Save](/customers/detail)
+	- [Save](#/customers/detail)
 
 		1. If a customer with the Tax number already exists: system displays **error**.
 		
 		2. System creates new customer.
 
-	- [Cancel](/customers "Return back to Customer list")
+	- [Cancel](#/customers "Return back to Customer list")
 
 ### Customer detail [/customers/detail]
 
@@ -391,8 +399,8 @@ and select a customer to work with.
 	- Tax number: DE56874646
 	- Invoice maturity: 60
 	- Web
-	- [Edit](/customers/detail/edit "Edit the customer")
-	- [Cancel](/customers)
+	- [Edit](#/customers/detail/edit "Edit the customer")
+	- [Cancel](#/customers)
 
 - ReadOnlyList Addresses
 	- Country
@@ -407,12 +415,12 @@ and select a customer to work with.
 	- Postal code
 		- 23478
 		- 65421
-	- [Edit]()
+	- [Edit]
 
 		The screen to edit customer address needs to be specified.
 
 - ReadOnlyForm
-	- [Create address]()
+	- [Create address]
 
 		The screen to create new customer address needs to be specified.
 
@@ -430,12 +438,12 @@ and select a customer to work with.
 	- Mobile phone
 		- 333555777
 	- Email
-	- [Edit]()
+	- [Edit]
 
 		The screen to edit customer contact needs to be specified.
 
 - ReadOnlyForm
-	- [Create contact]()
+	- [Create contact]
 
 		The screen to create new customer contact needs to be specified.
 
@@ -447,8 +455,8 @@ and select a customer to work with.
 	- Tax number: DE56874646
 	- Invoice maturity (required select: 30, 60, 90): 60
 	- Web - URL of the customer's web site
-	- [Save](/customers/detail "Edit the customer")
-	- [Cancel](/customers/detail)
+	- [Save](#/customers/detail "Save customer data")
+	- [Cancel](#/customers/detail)
 
 
 ## Orders
@@ -477,20 +485,20 @@ Orders are sorted by time created in descending order.
 		- Invoiced
 		- Invoiced
 	- Customer
-		- [Gauss GmbH.](/customers/detail)
-		- [Gauss GmbH.](/customers/detail)
-		- [Poisson Denis](/customers/detail)
-		- [Newton Inc.](/customers/detail)
-		- [Fibonacci srl.](/customers/detail)
-	- [View](/orders/detail)
+		- [Gauss GmbH.](#/customers/detail)
+		- [Gauss GmbH.](#/customers/detail)
+		- [Poisson Denis](#/customers/detail)
+		- [Newton Inc.](#/customers/detail)
+		- [Fibonacci srl.](#/customers/detail)
+	- [View](#/orders/detail)
 - ReadOnlyForm
-	- [Next]()
+	- [Next]
 
 		System loads next page of matching records and adds them to the table.
 
-	- [Create](/orders/new)
+	- [Create](#/orders/new)
 
-### Create order [orders/new]
+### Create order [/orders/new]
 - EditForm
 	- Customer (required select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.)
 	- Date received (required date): 12/31/2015
@@ -498,7 +506,7 @@ Orders are sorted by time created in descending order.
 		System pre-fills with current date.
 
 	- Comment (multiLine)
-	- [Save](/orders/detail)
+	- [Save](#/orders/detail)
 		1. System sets status = Created.
 		2. System creates new order.
 
@@ -506,14 +514,14 @@ Orders are sorted by time created in descending order.
 - ReadOnlyForm Order
 	- Order number: 1236 0116
 	- Status: Created
-	- Customer: [Gauss GmbH.](/customers/detail)
+	- Customer: [Gauss GmbH.](#/customers/detail)
 	- Date received: 12/31/2015
 	- Comment
 - ReadOnlyTable Line items
 	- Product
-		- [T-shirt Orange](/products/detail)
-		- [T-shirt Hipster](/products/detail)
-		- [Cookies Orange](/products/detail)
+		- [T-shirt Orange](#/products/detail)
+		- [T-shirt Hipster](#/products/detail)
+		- [Cookies Orange](#/products/detail)
 	- Unit price
 		- 9.99
 		- 9.99
@@ -538,34 +546,34 @@ Orders are sorted by time created in descending order.
 	- Total price: 44.42
 	- Total VAT: 6.67
 	- Order total: 51.09
-	- [Edit order](/orders/detail/edit)
+	- [Edit order](#/orders/detail/edit)
 	
 		Enabled for status Created.
 	
-	- [Edit items](/orders/items/edit)
+	- [Edit items](#/orders/items/edit)
 	
 		Enabled for status Created.
 	
-	- [Confirm](/orders/items/edit)
+	- [Confirm]
 	
 		Enabled for status Created.
 		
 		1. System sets status Confirmed.
 
-### Edit order [orders/detail/edit]
+### Edit order [/orders/detail/edit]
 - EditForm
 	- Customer (required select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.): Gauss GmbH.
 	- Date received (required date): 12/31/2015
 	- Comment (multiLine)
-	- [Save](/orders/detail)
+	- [Save](#/orders/detail)
 		1. System updates the order.
-	- [Cancel](/orders/detail)
+	- [Cancel](#/orders/detail)
 
 ### Edit order items [/orders/items/edit]
 - ReadOnlyForm Order
 	- Order number: 1236 0116
 	- Status: Created
-	- Customer: [Gauss GmbH.](/customers/detail)
+	- Customer: [Gauss GmbH.](#/customers/detail)
 	- Date received: 12/31/2015
 	- Comment
 - EditTable Line items
@@ -593,16 +601,16 @@ Orders are sorted by time created in descending order.
 		- 11.49
 		- 22.98
 		- 16.62
-	- [Remove]()
+	- [Remove]
 - ReadOnlyForm Order totals
 	- Total price: 44.42
 	- Total VAT: 6.67
 	- Order total: 51.09
-	- [Add item]()
+	- [Add item]
 		1. System creates a new item row in the table.
-	- [Save](/orders/detail)
+	- [Save](#/orders/detail)
 		1. System saves modified line items of the order.
-	- [Cancel](/orders/detail)
+	- [Cancel](#/orders/detail)
 
 As the user changes the quantities and adds/removes the line items,
 the system re-calculates the item and order totals.
