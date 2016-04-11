@@ -402,7 +402,7 @@ and select a customer to work with.
 	- [Edit](#/customers/detail/edit "Edit the customer")
 	- [Cancel](#/customers)
 
-- ReadOnlyList Addresses
+- ReadOnlyTable Addresses
 	- Country
 		- Germany
 		- Germany
@@ -424,7 +424,7 @@ and select a customer to work with.
 
 		The screen to create new customer address needs to be specified.
 
-- ReadOnlyList Contacts
+- ReadOnlyTable Contacts
 	- Salutation
 		- Mr
 	- Last name
@@ -559,6 +559,8 @@ Orders are sorted by time created in descending order.
 		Enabled for status Created.
 		
 		1. System sets status Confirmed.
+
+	- [Cancel](#/orders)
 
 ### Edit order [/orders/detail/edit]
 - EditForm
