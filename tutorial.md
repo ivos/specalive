@@ -57,7 +57,7 @@ The Products domain lets users maintain product database within the system.
 
 > An entry point consists of screens.
 
-### List products [/products]
+### List products (/products)
 
 > Use `heading level 3` to specify a system **screen**.
 >
@@ -189,7 +189,7 @@ and select a product to work with.
 
 	- [Create](#/products/new "Create new product")
 
-### Create product [/products/new]
+### Create product (/products/new)
 
 Create products screen lets the user create a new product record.
 
@@ -228,7 +228,7 @@ Create products screen lets the user create a new product record.
 
 	- [Cancel](#/products "Return back to Product list")
 
-### Product detail [/products/detail]
+### Product detail (/products/detail)
 
 - ReadOnlyForm Product
 
@@ -257,7 +257,7 @@ Create products screen lets the user create a new product record.
 
 	- [Cancel](#/products "Return back to Product list")
 
-### Edit product [/products/detail/edit]
+### Edit product (/products/detail/edit)
 
 - EditForm Edit product
 
@@ -280,7 +280,7 @@ Create products screen lets the user create a new product record.
 
 The Customers domain lets users work with customers.
 
-### List customers [/customers]
+### List customers (/customers)
 
 The List customers screen allows users to search customers
 and select a customer to work with.
@@ -317,7 +317,7 @@ and select a customer to work with.
 
 	- [Create](#/customers/new "Create new customer")
 
-### Create customer [/customers/new]
+### Create customer (/customers/new)
 
 - EditForm Create customer
 
@@ -392,7 +392,7 @@ and select a customer to work with.
 
 	- [Cancel](#/customers "Return back to Customer list")
 
-### Customer detail [/customers/detail]
+### Customer detail (/customers/detail)
 
 - ReadOnlyForm Customer
 	- Name: Gauss Friedrich
@@ -447,7 +447,7 @@ and select a customer to work with.
 
 		The screen to create new customer contact needs to be specified.
 
-### Edit customer [/customers/detail/edit]
+### Edit customer (/customers/detail/edit)
 
 - ReadOnlyForm Customer
 
@@ -463,7 +463,7 @@ and select a customer to work with.
 
 Maintain customer orders.
 
-### List orders [/orders]
+### List orders (/orders)
 
 Orders are sorted by time created in descending order.
 
@@ -498,7 +498,7 @@ Orders are sorted by time created in descending order.
 
 	- [Create](#/orders/new)
 
-### Create order [/orders/new]
+### Create order (/orders/new)
 - EditForm
 	- Customer (required select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.)
 	- Date received (required date): 12/31/2015
@@ -510,7 +510,7 @@ Orders are sorted by time created in descending order.
 		1. System sets status = Created.
 		2. System creates new order.
 
-### Order detail [/orders/detail]
+### Order detail (/orders/detail)
 - ReadOnlyForm Order
 	- Order number: 1236 0116
 	- Status: Created
@@ -562,7 +562,7 @@ Orders are sorted by time created in descending order.
 
 	- [Cancel](#/orders)
 
-### Edit order [/orders/detail/edit]
+### Edit order (/orders/detail/edit)
 - EditForm
 	- Customer (required select: Gauss GmbH., Poisson Denis, Newton Inc., Fibonacci srl.): Gauss GmbH.
 	- Date received (required date): 12/31/2015
@@ -571,7 +571,7 @@ Orders are sorted by time created in descending order.
 		1. System updates the order.
 	- [Cancel](#/orders/detail)
 
-### Edit order items [/orders/items/edit]
+### Edit order items (/orders/items/edit)
 - ReadOnlyForm Order
 	- Order number: 1236 0116
 	- Status: Created
