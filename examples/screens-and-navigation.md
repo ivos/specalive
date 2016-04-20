@@ -20,7 +20,7 @@ This is the `Product detail` screen.
 Customers entry point.
 
 ### List customers (/customers)
-This is the `List customers` screen. There is one one screen for customers now.
+This is the `List customers` screen. There is only one screen for customers now.
 
 
 ## Empty
