@@ -1,0 +1,28 @@
+- EditTable Order line items
+	- Product (required select: T-shirt Orange, T-shirt Tutti Frutti, T-shirt Free, T-shirt Hipster, Cookies Chocolate Ecuador, Cookies Orange)
+		- T-shirt Orange
+		- T-shirt Hipster
+		- Cookies Orange
+	- Unit price (readOnly)
+		- 9.99
+		- 9.99
+		- 2.89
+	- Quantity (required)
+		- 1
+		- 2
+		- 5
+	- Price (readOnly)
+		- 9.99
+		- 19.98
+		- 14.45
+	- VAT (readOnly)
+		- 1.5
+		- 3
+		- 2.17
+	- Item total (readOnly)
+		- 11.49
+		- 22.98
+		- 16.62
+	- [Remove]
+- ReadOnlyForm
+	- [Add item]

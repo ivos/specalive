@@ -1,0 +1,21 @@
+- ReadOnlyTable Customers
+	- Name
+		- Gauss GmbH.
+		- Poisson Denis
+		- Newton Inc.
+		- Fibonacci srl.
+	- Tax number
+		- DE56874646
+		- FR2776987643
+		- GB02264641
+		- IT33656477
+	- Status
+		- Active
+		- Active
+		- Disabled
+		- Active
+	- Invoice maturity
+		- 30
+		- 60
+		- 90
+		- 30
